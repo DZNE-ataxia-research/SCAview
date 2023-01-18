@@ -60,11 +60,11 @@ logger = logging.getLogger(__name__)
 
 Mdataframe = None
 maxvisit = None
-#PICKLE_PATH = "/Users/philippwegner/Desktop/UKB/git/PostIDSN-Backend/eav.pkl"
-PICKLE_PATH = "/idsn/git/eav.pkl"
-#PICKLE_PATH ="/idsn/git/Clinical-Viewer-post-IDSN/backend/api/virtual.pkl"
-#MODEL_PATH = "/Users/philippwegner/Desktop/UKB/git/PostIDSN-Backend/Datamodel_reduced.xlsx"
-MODEL_PATH = "/idsn/git/Datamodel_reduced.xlsx"
+
+
+
+PICKLE_PATH = os.environ.get("SCA_VIEW_EAV_PATH", "../data/eav.pkl")
+MODEL_PATH = os.environ.get("SCA_VIEW_DMODEL_PATH", "../dmodels/Datamodel_reduced.xlsx")
 
 def load_main_dataframe():
     #Mdata = DataPointsVisit.objects.all()
@@ -616,6 +616,7 @@ def get_subgroup(att, lower, upper, cat_list):
 
 
 def get_population():
+    eav = Mdataframe
     pop = eav.sort_values(by=['PID', 'VISIT']).set_index(['PID', 'VISIT']).index.drop_duplicates().tolist()
     pop = [list(i) for i in pop]
     return json.dumps(pop)
@@ -921,7 +922,7 @@ def get_all_attributes(request):
 @use_token_auth
 @custom_permission_classes([IsAuthenticated])
 def initialize_session(request):
-    print("INITTTTTTTT")
+    print("INIT....")
     #### Checking if datamodel and data is available ####
     if (model_codes is None) or (model_items is None) :
         try:

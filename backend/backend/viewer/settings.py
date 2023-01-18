@@ -26,7 +26,7 @@ BASEPATH="clinical-backend/"
 SECRET_KEY = 'p1bn9df+a5acg1b&-19qe!c(q*zpqsgo!t2b9=w&%+edm2cc79'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     BASE_HTTP_URL = "http://localhost:8000/clinical-backend/"
@@ -174,14 +174,10 @@ DATABASES = {
             'ENGINE': 'djongo',
             'ENFORCE_SCHEMA': False,
             'NAME': 'viewerDB',
-            #'NAME': 'db_dez_new',
             'HOST': 'localhost',
-            #'HOST': '172.18.0.4',
             'PORT': 27017,
             'USER': 'idsn',
-            #'PASSWORD': 'IDSNdjangoSetup!',
-            'PASSWORD': 'idsn4tvb-c',
-            #'AUTH_SOURCE': 'db_dez_new',
+            'PASSWORD': 'viewer_pwd_123',
             'AUTH_SOURCE': 'viewerDB',
            # 'AUTH_MECHANISM': 'SCRAM-SHA-1',
         },
@@ -190,6 +186,9 @@ DATABASES = {
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
+
+#DATABASES = {}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
