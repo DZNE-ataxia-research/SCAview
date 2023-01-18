@@ -1,0 +1,208 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <title>Login | Clinical Viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <style>
+        .full-height {
+            min-height: 100vh;
+        }
+        .absolute-message{
+            position: absolute;
+            top: 3px;
+            z-index: 1000;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    {% for message in messages %}
+    <div class="absolute-message">
+    <div class="notification is-warning">
+        <button class="delete" onclick="closeMessage()"></button>
+        <strong>{{message}}</strong>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="columns is-centered px-3">
+
+
+
+        <div class="column has-background-light full-height pt-5 my-auto">
+            <p class=" title is-10">Clinical Viewer Authentification</p>
+            <div class="is-flex is-justify-center">
+                <figure class="image">
+                    <img src="{% static 'users/img/Logoo_bold.png' %} ">
+                </figure>
+            </div>
+        </div>
+        <div class="column is-two-fifths pt-5 ">
+
+
+            <div id="login">
+                <form id="login_form" method="POST" action="/clinical-backend/login/">
+                    {% csrf_token %}
+
+                    <div class="field">
+                        <label class="label">E-Mail (Username)</label>
+
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" type="email" name="username" id="username" placeholder="you@example.com">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                      </span>
+                         
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <p class="control has-icons-left">
+                            
+                            <input class="input" type="password" name="password" id="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                        </p>
+                    </div>
+                    <input id="redirect" name="redirect" type="hidden" />
+
+                    
+                    <div class="field is-grouped is-flex is-justify-content-end">
+                        <div class="control">
+                            <button class="button" id="to_register" type="button">Go to Register</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link">Submit</button>
+                        </div>
+                      
+
+                    </div>
+                </form>
+
+                
+            </div>
+            <div id="register" style="display: none;">
+
+                
+
+
+
+                <form id="register_form" method="POST" action="/clinical-backend/register/ ">
+                    {% csrf_token %}
+
+                    
+                        <div class="field">
+                            <label class="label">E-Mail (Username)</label>
+                            <div class="control has-icons-left has-icons-right">
+                            <input type="email" class="input" name="username" required id="username" placeholder="you@example.com ">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                              </span>
+                           
+                        </div>
+                        </div>
+                        <div class="field">
+                           
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left">
+                            <input class="input" type="password" required name="password1" id="password1" placeholder="Password">
+                            <p style="color: red; display: none " id="warn_message ">Passwords do not match!</p>
+                            <span class="icon is-small is-left ">
+                                <i class="fas fa-lock "></i>
+                              </span>
+                            </div>
+
+
+                        </div>
+                        <div class="field">
+                            <label class="label">repeat password</label>
+                            <div class="control has-icons-left">
+                            <input class="input" type="password" required name="password2" id="password2" placeholder="Password">
+                            <span class="icon is-small is-left ">
+                                <i class="fas fa-lock "></i>
+                              </span>
+                            </div>
+                        </div>
+                        <div class="field ">
+                            <label class="label">Affiliation</label>
+                            <input type="text" class="input" required name="affiliation" id="affiliation">
+
+                        </div>
+                        <div class="field">
+                            <label class="label">How do youplan to use the IDSN Data Steward?</label>
+                            <textarea name="reason" class="textarea" required></textarea>
+
+                        </div>
+
+
+                        <div class="field is-grouped is-flex is-justify-content-end ">
+                            <div class="control">
+                                <button class="button" id="to_login" type="button">Go to Login</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-link" id="register_btn">Submit</button>
+                            </div>
+                            
+                        </div>
+
+                </form>
+              
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js " integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=" anonymous "></script>
+    <script>
+        function closeMessage(){
+            //console.log("HALLO")
+
+           $('.absolute-message').hide();
+        }
+        $(document).ready(function(e) {
+
+            
+
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            var next = urlParams.get('next');
+
+
+            document.getElementById('redirect').value = next;
+
+            document.getElementById("password2").onchange = function() {
+                if (this.value != document.getElementById("password1").value) {
+                    document.getElementById("register_btn").disabled = true;
+                    document.getElementById("warn_message").style.display = "block ";
+                } else {
+                    document.getElementById("register_btn").disabled = false;
+                    document.getElementById("warn_message").style.display = "none ";
+                }
+            }
+
+            document.getElementById("to_login").onclick = function() {
+                document.getElementById('register').style.display = 'none';
+                document.getElementById('login').style.display = 'block';
+            }
+            document.getElementById('to_register').onclick = function() {
+                document.getElementById('register').style.display = 'block';
+                document.getElementById('login').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

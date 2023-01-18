@@ -1,0 +1,52 @@
+{
+  "name": "idsn-viewer",
+  "version": "0.1.0",
+  "homepage": "https://idsn.dzne.de/viewer",
+  "private": true,
+  "dependencies": {
+    "@fontsource/roboto": "^4.4.2",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.58",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-grid-layout": "^0.17.1",
+    "@types/react-plotly.js": "^2.2.4",
+    "@types/react-router-dom": "^5.1.5",
+    "axios": "^0.19.2",
+    "plotly.js": "^1.54.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-grid-layout": "^0.18.3",
+    "react-plotly.js": "^2.4.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

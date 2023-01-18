@@ -1,0 +1,3 @@
+Watching for file changes with StatReloader
+Loaded Datamodel
+* Owlready2 * Warning: optimized Cython parser module 'owlready2_optimized' is not available, defaulting to slower Python implementation

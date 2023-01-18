@@ -1,0 +1,50 @@
+.filter {
+  width: 20%;
+  min-width: 360px;
+  margin-right: 24px;
+}
+
+.filter .filter__content {
+  padding: 0 24px 24px;
+}
+
+.filter .MuiTable-root {
+  margin-bottom: 20px;
+}
+
+.filter .MuiTableCell-root {
+  padding: 6px 12px;
+  border: 0 none;
+}
+
+.filter .MuiTableCell-root:first-child {
+  padding-left: 0;
+}
+
+.filter .MuiTableCell-root:last-child {
+  padding-right: 0;
+}
+
+.filter .MuiTableCell-head {
+  font-weight: 500;
+  color: #048abf;
+}
+
+.filter .MuiFormGroup-root {
+  padding-left: 8px;
+  margin-bottom: 10px;
+}
+
+.filter .subgroups {
+  margin-top: 16px;
+}
+
+.filter .subgroups .MuiFormControlLabel-label {
+  width: 100%;
+}
+
+.subgroup__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

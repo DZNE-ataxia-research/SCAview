@@ -1,0 +1,43 @@
+.configuration {
+  width: 20%;
+  min-width: 360px;
+  margin-left: 24px;
+}
+
+.configuration .configuration__content {
+  padding: 0 24px 24px;
+}
+
+.configuration__content > .MuiFormControl-root {
+  margin-top: 24px;
+}
+
+.radio-item {
+  display: none;
+}
+
+.followup {
+  margin-top: 24px;
+  display: flex;
+}
+
+.followup__months {
+  flex: 2;
+}
+
+.followup__tolerance {
+  flex: 1;
+}
+
+.followup__months + .followup__tolerance {
+  margin-left: 16px;
+}
+
+.switches {
+  display: flex;
+  padding-left: 12px;
+}
+
+.slider {
+  margin-top: 24px;
+}

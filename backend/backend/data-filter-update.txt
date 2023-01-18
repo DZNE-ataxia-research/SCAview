@@ -1,0 +1,1 @@
+{"usertoken": "42c1a827ef2f", "concept": 1, "filter_table": [{"attribute": "LONG", "lower": 64.00256629597946, "upper": 70.3327630453379, "list": null}, {"attribute": "SARASUM", "lower": 12.80155642023346, "upper": 20.843060959792474, "list": null}]}

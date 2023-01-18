@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-viewer/static/css/main.9bcec2a3.chunk.css",
+    "main.js": "/react-viewer/static/js/main.042413a1.chunk.js",
+    "main.js.map": "/react-viewer/static/js/main.042413a1.chunk.js.map",
+    "runtime-main.js": "/react-viewer/static/js/runtime-main.0bf7bb30.js",
+    "runtime-main.js.map": "/react-viewer/static/js/runtime-main.0bf7bb30.js.map",
+    "static/css/2.478eae2d.chunk.css": "/react-viewer/static/css/2.478eae2d.chunk.css",
+    "static/js/2.b950683d.chunk.js": "/react-viewer/static/js/2.b950683d.chunk.js",
+    "static/js/2.b950683d.chunk.js.map": "/react-viewer/static/js/2.b950683d.chunk.js.map",
+    "index.html": "/react-viewer/index.html",
+    "precache-manifest.f90e053c64c35a5751bdc4f369afce52.js": "/react-viewer/precache-manifest.f90e053c64c35a5751bdc4f369afce52.js",
+    "service-worker.js": "/react-viewer/service-worker.js",
+    "static/css/2.478eae2d.chunk.css.map": "/react-viewer/static/css/2.478eae2d.chunk.css.map",
+    "static/css/main.9bcec2a3.chunk.css.map": "/react-viewer/static/css/main.9bcec2a3.chunk.css.map",
+    "static/js/2.b950683d.chunk.js.LICENSE.txt": "/react-viewer/static/js/2.b950683d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bf7bb30.js",
+    "static/css/2.478eae2d.chunk.css",
+    "static/js/2.b950683d.chunk.js",
+    "static/css/main.9bcec2a3.chunk.css",
+    "static/js/main.042413a1.chunk.js"
+  ]
+}

@@ -1,0 +1,37 @@
+.grid {
+  flex: 1;
+}
+
+.grid--draggable {
+  cursor: move;
+}
+
+.grid__item {
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid__item--active {
+  border-color: #048abf;
+}
+
+.grid__item-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px;
+}
+
+.grid__item-header > button + button {
+  margin-left: 8px;
+}
+
+.grid__item-content {
+  flex: 1;
+  min-height: 0;
+}
+
+.grid__item-loader {
+  height: 4px;
+}
