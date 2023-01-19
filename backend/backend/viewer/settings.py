@@ -26,12 +26,15 @@ BASEPATH="clinical-backend/"
 SECRET_KEY = 'p1bn9df+a5acg1b&-19qe!c(q*zpqsgo!t2b9=w&%+edm2cc79'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+PORT = os.environ.get("SCA_VIEW_PATH")
+PRODUCTION_URL = os.environ.get("SCA_VIEW_PROD_URL")
 
 if DEBUG:
-    BASE_HTTP_URL = "http://localhost:8000/clinical-backend/"
+    BASE_HTTP_URL = f"http://localhost:{PORT}/clinical-backend/"
 else:
-    BASE_HTTP_URL = "http://idsn.dzne.de/clinical-backend/"
+    BASE_HTTP_URL = PRODUCTION_URL
 
 
 
