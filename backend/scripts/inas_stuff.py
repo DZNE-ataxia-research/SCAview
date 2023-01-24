@@ -2,11 +2,11 @@
 import pandas as pd
 
 # %%
-df = pd.read_pickle("eav.pkl")
+df = pd.read_pickle("../data/eav.pkl")
 
 new_data = []
 
-
+# %%
 df = df[df['ATTRIBUTE'] != "COGIMP_INDICATOR"]
 df
 
@@ -56,10 +56,11 @@ for i, pid in enumerate(df['PID'].unique()):
         ATTRIBUTE = row['ATTRIBUTE'].values
 
         
+        
+        '''
         isHyperreflexic = False
         isAreflexic = False
         hasEnoughData = False
-        '''
 
         for att in ["BICEPS", "PATELLAR", "ACHILLES"]:
             data = row[row['ATTRIBUTE'] == att]
@@ -96,9 +97,10 @@ for i, pid in enumerate(df['PID'].unique()):
                 new_data.append([SOURCE, pid, vis, TIMESTAMP, "EPR_INDICATOR", 1, PROVENANCE, OLD, CHECK])
             else:
                 new_data.append([SOURCE, pid, vis, TIMESTAMP, "EPR_INDICATOR", 0, PROVENANCE, OLD, CHECK])
+        '''
         hasEnoughData = False
         isSpastic = False
-        if att in ["SPAGAIT", "SPAUPLIMB", "SPALOLIMB"]:
+        for att in ["SPAGAIT", "SPAUPLIMB", "SPALOLIMB"]:
             data = row[row['ATTRIBUTE'] == att]
             if not len(data) == 0:
                 hasEnoughData = True
@@ -106,9 +108,10 @@ for i, pid in enumerate(df['PID'].unique()):
                     isSpastic = True
         if hasEnoughData:
             if isSpastic:
-                new_data.append([SOURCE, pid, vis, TIMESTAMP, "SPAGAIT_INDICATOR", 1, PROVENANCE, OLD, CHECK])
+                new_data.append([SOURCE, pid, vis, TIMESTAMP, "SPA_INDICATOR", 1, PROVENANCE, OLD, CHECK])
             else:
-                new_data.append([SOURCE, pid, vis, TIMESTAMP, "SPAGAIT_INDICATOR", 0, PROVENANCE, OLD, CHECK])
+                new_data.append([SOURCE, pid, vis, TIMESTAMP, "SPA_INDICATOR", 0, PROVENANCE, OLD, CHECK])
+        '''
         hasEnoughData = False
         paresis = False
         for att in ["PAFACE","PAULPRO","PAULDIS","PALLPRO","PALLDIS"]:
@@ -117,7 +120,7 @@ for i, pid in enumerate(df['PID'].unique()):
                 hasEnoughData = True
                 if int(data['VALUE'].item()) != 0:
                     paresis = True
-
+        
         if hasEnoughData:
             if paresis:
                 new_data.append([SOURCE, pid, vis, TIMESTAMP, "PARESIS_INDICATOR", 1, PROVENANCE, OLD, CHECK])
@@ -271,7 +274,7 @@ for i, pid in enumerate(df['PID'].unique()):
                 new_data.append([SOURCE, pid, vis, TIMESTAMP, "URIN_INDICATOR", 1, PROVENANCE, OLD, CHECK])
             else:
                 new_data.append([SOURCE, pid, vis, TIMESTAMP, "URIN_INDICATOR", 0, PROVENANCE, OLD, CHECK])
-        '''
+        
 
         hasEnoughData = False
         cogimp = False
@@ -301,7 +304,7 @@ for i, pid in enumerate(df['PID'].unique()):
                 new_data.append([SOURCE, pid, vis, TIMESTAMP, "BRAINSTEM_OCU_INDICATOR", 1, PROVENANCE, OLD, CHECK])
             else:
                 new_data.append([SOURCE, pid, vis, TIMESTAMP, "BRAINSTEM_OCU_INDICATOR", 0, PROVENANCE, OLD, CHECK])
-
+        '''
 
 
 
@@ -314,5 +317,5 @@ for i, pid in enumerate(df['PID'].unique()):
 pd.DataFrame(columns=df.columns, data = new_data)
 # %% 
         
-pd.concat([df, pd.DataFrame(columns=df.columns, data = new_data)]).to_pickle("eav_with_inas.pkl")
+pd.concat([df, pd.DataFrame(columns=df.columns, data = new_data)]).to_pickle("../data/eav.pkl")
 # %%

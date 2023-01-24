@@ -30,6 +30,8 @@ DEBUG = False
 
 PORT = os.environ.get("SCA_VIEW_PATH")
 PRODUCTION_URL = os.environ.get("SCA_VIEW_PROD_URL")
+if os.environ.get('SCA_VIEW_DEBUG')=='TRUE':
+    DEBUG = True
 
 if DEBUG:
     BASE_HTTP_URL = f"http://localhost:{PORT}/clinical-backend/"

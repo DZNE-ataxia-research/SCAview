@@ -624,6 +624,8 @@ def get_population():
 ### MODEL #########
 
 def get_humanreadable(att):
+    if att in ['', 'SUBGROUPS']:
+        return ''
     if att in model_items.index:
         return model_items.loc[att, 'Attribute_Tooltip']
     else:
@@ -1149,6 +1151,7 @@ def getdata(request):
         if type == 1:
             df = getdata_XY(Mdataframe, attX, attY, attC, Dt)
         elif type in [2, 3]:
+            attY = ''
             df = getdata_X(Mdataframe, attX, attC, Dt)
         elif type == 4:
             df = getdata_T(Mdataframe, attX, attY, attC, Dt)
@@ -1294,9 +1297,9 @@ def getdata(request):
         plot = {
             "traces": traces,
             "fits": fits,
-            "titleX": get_humanreadable((attX)),
-            "titleY": get_humanreadable((attY)),
-            "titleC": get_humanreadable((attC)),
+            "titleX": get_humanreadable(attX),
+            "titleY": get_humanreadable(attY),
+            "titleC": get_humanreadable(attC),
             "box": box
         }
         figure = get_fig(json.dumps(plot), json.dumps(ctrl_json))
@@ -1526,9 +1529,9 @@ def filter_update(request):
         plot = {
             "traces": traces,
             "fits": fits,
-            "titleX": get_humanreadable((attX)),
-            "titleY": get_humanreadable((attY)),
-            "titleC": get_humanreadable((attC)),
+            "titleX": get_humanreadable(attX),
+            "titleY": get_humanreadable(attY),
+            "titleC": get_humanreadable(attC),
             "box": box
         }
         figure = get_fig(json.dumps(plot), json.dumps(ctrl_json))
