@@ -1,7 +1,7 @@
 {
   "name": "idsn-viewer",
   "version": "0.1.0",
-  "homepage": "https://idsn.dzne.de/viewer",
+  "homepage": "https://idsn.dzne.de/viewer-virtual",
   "private": true,
   "dependencies": {
     "@fontsource/roboto": "^4.4.2",
@@ -29,8 +29,8 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
