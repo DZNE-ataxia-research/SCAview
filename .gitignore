@@ -1,3 +1,5 @@
 backend/data/history
 backend/data/eav.pkl
 frontend/node_modules
+backend/original_daten
+
